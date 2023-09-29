@@ -1,0 +1,22 @@
+* { 
+    outline: 1px solid red;
+    margin: 0;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+#gameContainer {
+    width: 60%;
+    height: 80%;
+}
+
+.gameBoard {
+    display: flex;
+    justify-content: center;
+}
