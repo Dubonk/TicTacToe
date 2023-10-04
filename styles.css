@@ -1,5 +1,8 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+
 * { 
     margin: 0;
+    font-family: 'Roboto', sans-serif;
 }
 
 body {
@@ -11,12 +14,19 @@ body {
     background-color: lightseagreen;
 }
 
-#gameContainer {
+#title {
+    font-size: 4rem;
+    font-weight: bold;
+    margin-bottom: 100px;
+    margin-top: 50px;
+}
+
+.gameContainer {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     grid-template-rows: 1fr 1fr 1fr;
-    width: 80%;
-    height: 80%;
+    width: 50%;
+    height: 50%;
     border-radius: 8px;
     background-color: seashell;
 }
@@ -30,4 +40,11 @@ body {
 
 .gameCell:hover {
     background-color: rgb(93, 93, 93);
+}
+
+button {
+    border-radius: 8px;
+    padding: 10px;
+    font-size: xx-large;
+    
 }
