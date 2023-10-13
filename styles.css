@@ -1,34 +1,62 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 * { 
-    margin: 0;
     font-family: 'Roboto', sans-serif;
 }
 
 body {
+    margin: 0;
     display: flex;
-    flex-direction: column;
     align-items: center;
-    width: 100%;
+    flex-direction: column;
     height: 100vh;
-    background-color: lightseagreen;
+    background-color: rgb(108, 181, 177);
 }
 
 #title {
+    background-color: rgb(208, 181, 146);
+    width: 100%;
+    text-align: center;
+    margin-top: 0;
     font-size: 4rem;
     font-weight: bold;
     margin-bottom: 100px;
-    margin-top: 50px;
+    box-shadow: 0px 1px 10px black;
 }
 
-.gameContainer {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    grid-template-rows: 1fr 1fr 1fr;
-    width: 50%;
+#gameContainer {
+    width: 800px;
     height: 50%;
-    border-radius: 8px;
-    background-color: seashell;
+    margin-bottom: 60px;
+}
+
+#game {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    background-color: beige;
+    border: 20px solid rgb(126, 126, 126);
+}
+.cell {
+    text-align: center;
+    font-size: 1220%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 33%;
+    height: 33%;
+    border: 1px solid black;
+}
+
+.cell:hover {
+    cursor: pointer;
+    background-color: rgb(224, 224, 201);
+}
+
+img {
+    width: 100%;
 }
 
 .gameCell {
@@ -45,8 +73,23 @@ body {
 button {
     border-radius: 8px;
     padding: 10px;
-    font-size: xx-large;
-    
+    font-size: 28px;
+    background-color: burlywood;
+    border: 1px solid rgb(164, 164, 164);
+    box-shadow: 0px 1px 10px black;
+    width: fit-content;
+    align-self: center;
+}
+
+button:hover {
+    cursor: pointer;
+    transform: scale(1.1);
+    box-shadow: 0px 5px 10px black;
+}
+
+button:active {
+    transform: scale(1);
+    box-shadow: 0px 1px 10px black;
 }
 
 .footer {
@@ -58,5 +101,5 @@ button {
     width: 100%;
     padding-top: 10px;
     padding-bottom: 10px;
-    background-color: rgb(241, 238, 239);
+    background-color: rgb(208, 181, 146);
 }
