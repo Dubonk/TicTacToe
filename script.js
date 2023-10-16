@@ -1,14 +1,24 @@
-let gameContainer = document.querySelector('.gameContainer');
+let gameContainer = document.querySelector('#game');
 
-const myGameboard = (() => {
+let myGameboard = (() => {
   let gameboard = new Array(9);
   return gameboard;
   })();
 
-const player = (name, marker) => {
+const player = function (name, marker) {
     return {name, marker};
 }
 
-// In the Html, create 9 divs in gameContainer div, each of these 
-// divs will be its own tictactoe slot. Maybe use a table?
+const player1 = new player('Player 1', 'X');
+const player2 = new player('Player 2', 'O');
 
+
+function displayBoard() {
+  for (let i = 0; i > gameboard.length; i++) {
+    let cell = gameboard[i];
+    cell.classList.append('cell');
+    gameContainer.appendChild(cell);
+  }
+};
+
+displayBoard();
