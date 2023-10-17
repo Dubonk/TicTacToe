@@ -55,22 +55,20 @@ body {
     background-color: rgb(224, 224, 201);
 }
 
-img {
-    width: 100%;
+#playerNames {
+    width: 800px;
+    display: flex;
+    justify-content: space-evenly;
 }
 
-.gameCell {
-    background-color: gray;
-    border: 2px solid seashell;
-    text-align: center;
-    border-radius: 8px;
-}
-
-.gameCell:hover {
-    background-color: rgb(93, 93, 93);
+#playerNames > div > input { 
+    border-radius: 5px;
+    border: 1px solid gray;
+    height: 1.5em;
 }
 
 button {
+    margin-top: 20px;
     border-radius: 8px;
     padding: 10px;
     font-size: 28px;
@@ -102,4 +100,23 @@ button:active {
     padding-top: 10px;
     padding-bottom: 10px;
     background-color: rgb(208, 181, 146);
+}
+.cell:first-child, .cell:nth-child(2),
+.cell:nth-child(3) {
+    border-top: none;
+}
+
+.cell:nth-child(3), .cell:nth-child(6), 
+.cell:nth-child(9) {
+    border-right: none;
+}
+
+.cell:nth-child(7), .cell:nth-child(8), 
+.cell:nth-child(9) {
+    border-bottom: none;
+}
+
+.cell:first-child, .cell:nth-child(4), 
+.cell:nth-child(7) {
+    border-left: none;
 }
