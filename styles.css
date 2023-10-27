@@ -24,13 +24,8 @@ body {
     box-shadow: 0px 1px 10px black;
 }
 
-#gameContainer {
-    width: 800px;
-    height: 50%;
-    margin-bottom: 60px;
-}
-
 #game {
+    width: 800px;
     height: 100%;
     display: flex;
     justify-content: center;
