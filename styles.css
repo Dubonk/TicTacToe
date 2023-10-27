@@ -37,6 +37,7 @@ body {
     align-items: center;
     flex-wrap: wrap;
     background-color: beige;
+    border-radius: 8px;
     border: 20px solid rgb(126, 126, 126);
 }
 .cell {
@@ -45,8 +46,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 33%;
-    height: 33%;
+    width: 33.15%;
+    height: 33.2%;
     border: 1px solid black;
 }
 
