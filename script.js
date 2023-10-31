@@ -1,4 +1,5 @@
 const game = document.getElementById('game');
+const start = document.getElementById('startGame');
 const winningCombinations = (function () {
   const combos = [
     [0, 1, 2], // Top row
@@ -34,19 +35,12 @@ function renderGameBoard() {
     game.appendChild(div);
     div.addEventListener('click',() => handleClick(div, i), {once: true});
   }
-  // myGameBoard.forEach(Element => {
-  //   let div = document.createElement('div');
-  //   div.classList.add('cell')
-  //   game.appendChild(div);
-  //   console.log(`cell is ${cell.textContent}, id is`)
-  //   cell.addEventListener('click', handleClick, {once: true});
-  // })
 }
 
 
 function handleClick(div, index) {
   placeMark(div, index);
-  checkWin();
+  checkWin(div);
   checkTie();
   switchTurn();
 }
@@ -55,16 +49,13 @@ function placeMark(div, index) {
     myGameBoard[index] = currentPlayer;
     div.textContent = currentPlayer;
   };
-    console.log(`${div.id} is ${div.textContent} ${myGameBoard}`)
 }
 
-function checkWin() {
+function checkWin(div) {
   for (const combo of winningCombinations) {
     const [a, b, c] = combo;
     if (myGameBoard[a] && myGameBoard[a] === myGameBoard[b] && myGameBoard[a] === myGameBoard[c]) {
-      // A player has won
       alert(`${currentPlayer === player1.marker ? player1.name : player2.name} wins!`);
-      // You can add any additional logic here, such as resetting the game.
       return;
     }
   }
@@ -84,4 +75,12 @@ function switchTurn() {
     currentPlayer = player1.marker;
   }
 }
-renderGameBoard()
+
+function resetGame() {
+
+}
+function startGame() {
+  renderGameBoard()
+}
+
+start.addEventListener('click', () => startGame(), {once: true});
