@@ -23,7 +23,9 @@ body {
     margin-bottom: 100px;
     box-shadow: 0px 1px 10px black;
 }
-
+#hidden {
+    display: none;
+}
 #game {
     width: 800px;
     height: 60%;

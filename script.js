@@ -1,5 +1,9 @@
 const game = document.getElementById('game');
 const start = document.getElementById('startGame');
+const reset = document.getElementById('reset');
+let firstPlayerName; // = document.getElementById('player1').value;
+let secondPlayerName;
+let win = false;
 const winningCombinations = (function () {
   const combos = [
     [0, 1, 2], // Top row
@@ -21,9 +25,8 @@ const myGameBoard = (function () {
 function createPlayer (name, marker) {
  return {name, marker}
 }
-
-const player1 = createPlayer('Player 1', 'x');
-const player2 = createPlayer('Player 2', 'o');
+let player1 = createPlayer(firstPlayerName, 'x');
+let player2 = createPlayer(secondPlayerName, 'o');
 let currentPlayer = player1.marker;
 
 function renderGameBoard() {
@@ -33,16 +36,20 @@ function renderGameBoard() {
     div.id = 'cell ' + (i + 1);
     div.classList.add('cell')
     game.appendChild(div);
-    div.addEventListener('click',() => handleClick(div, i), {once: true});
+    div.addEventListener('click',() => handleClick(div, i), //{once: true}
+    );
   }
 }
 
 
 function handleClick(div, index) {
+  if(win == true) {
+    return;
+  }
   placeMark(div, index);
   checkWin(div);
   checkTie();
-  switchTurn();
+  switchTurn(div);
 }
 function placeMark(div, index) {
   if (div.textContent == '') {
@@ -52,22 +59,23 @@ function placeMark(div, index) {
 }
 
 function checkWin(div) {
+  
   for (const combo of winningCombinations) {
     const [a, b, c] = combo;
     if (myGameBoard[a] && myGameBoard[a] === myGameBoard[b] && myGameBoard[a] === myGameBoard[c]) {
       alert(`${currentPlayer === player1.marker ? player1.name : player2.name} wins!`);
-      return;
+      return win = true;
     }
   }
 }
 
 function checkTie() {
-  if (myGameBoard.every(Element => Element == 'x' || Element == 'o')) {
+  if (myGameBoard.every(Element => Element == 'x' || Element == 'o' && win == false)) {
      alert('tie!');
   };
 }
 
-function switchTurn() {
+function switchTurn(div) {
   if (currentPlayer == player1.marker) {
     currentPlayer = player2.marker;
   }
@@ -76,11 +84,42 @@ function switchTurn() {
   }
 }
 
+const startGame = ( function() {
+  start.addEventListener('click',() => {
+    getNames();
+    renderGameBoard()
+  }, {once: true});
+})();
+
 function resetGame() {
+  // Clear the game board
+  const cells = document.querySelectorAll('.cell');
+  cells.forEach(cell => {
+    cell.textContent = '';
+    cell.removeEventListener('click', handleClick);
+  });
 
-}
-function startGame() {
-  renderGameBoard()
+  // Reset the game array
+  myGameBoard.fill('');
+
+  // Set the first move to player1's marker
+  currentPlayer = player1.marker;
+  getNames();
+  win = false;
 }
 
-start.addEventListener('click', () => startGame(), {once: true});
+function getNames() {
+  firstPlayerName = document.getElementById('player1').value;
+  if(firstPlayerName == '') {
+    player1.name = 'Player 1';
+  } else {
+  player1.name = firstPlayerName;
+  }
+  secondPlayerName = document.getElementById('player2').value;
+  if(secondPlayerName == '') {
+    player2.name = 'Player 2';
+  } else {
+  player2.name = secondPlayerName;
+  }
+}
+reset.addEventListener('click', resetGame);
