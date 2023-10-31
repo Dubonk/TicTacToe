@@ -3,6 +3,7 @@ const start = document.getElementById('startGame');
 const reset = document.getElementById('reset');
 let firstPlayerName; // = document.getElementById('player1').value;
 let secondPlayerName;
+const form = document.getElementById('playerNames');
 let win = false;
 const winningCombinations = (function () {
   const combos = [
@@ -34,7 +35,7 @@ function renderGameBoard() {
     const div = document.createElement('div');
     div.textContent = myGameBoard[i];
     div.id = 'cell ' + (i + 1);
-    div.classList.add('cell')
+    div.classList.add('cell');
     game.appendChild(div);
     div.addEventListener('click',() => handleClick(div, i), //{once: true}
     );
@@ -46,6 +47,7 @@ function handleClick(div, index) {
   if(win == true) {
     return;
   }
+  getNames();
   placeMark(div, index);
   checkWin(div);
   checkTie();
@@ -76,11 +78,14 @@ function checkTie() {
 }
 
 function switchTurn(div) {
+  div.classList.remove('x', 'circle');
   if (currentPlayer == player1.marker) {
     currentPlayer = player2.marker;
+    div.classList.add('x');
   }
   else {
     currentPlayer = player1.marker;
+    div.classList.add('circle');
   }
 }
 
@@ -96,7 +101,9 @@ function resetGame() {
   const cells = document.querySelectorAll('.cell');
   cells.forEach(cell => {
     cell.textContent = '';
+    cell.classList.remove('x', 'circle');
     cell.removeEventListener('click', handleClick);
+    form.reset();
   });
 
   // Reset the game array
