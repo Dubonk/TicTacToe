@@ -76,15 +76,15 @@ body {
 #playerNames {
     display: flex;
     justify-content: center;
-    gap: 5px;
+    gap: 10px;
 }
 
-#playerNames > div > input { 
-    border-radius: 5px;
-    border: 1px solid gray;
+#playerNames > input { 
     height: 1.5em;
-    width: 250px;
+    width: 140px;
     text-align: center;
+    border-radius: 5px;
+    border: 1px solid transparent;
 }
 
 #reset {
@@ -143,12 +143,6 @@ button:active {
     border-left: none;
 }
 
-input {
-    border-radius: 8px;
-    border: 1px solid transparent;
-    height: 1.4em;
-    text-align: center;
-}
 input:focus {
     outline: none;
     background-color: rgb(241, 255, 196);
