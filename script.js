@@ -90,7 +90,8 @@ function switchTurn(div) {
 }
 
 const startGame = ( function() {
-  start.addEventListener('click',() => {
+  game.addEventListener('click',() => {
+    game.textContent = '';
     getNames();
     renderGameBoard()
   }, {once: true});
