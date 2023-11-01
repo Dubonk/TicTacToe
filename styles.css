@@ -8,20 +8,23 @@ body {
     margin: 0;
     display: flex;
     align-items: center;
+    justify-content: center;
     flex-direction: column;
     height: 100vh;
     width: 100%;
     background-color: rgb(108, 181, 177);
+    overflow: hidden;
 }
 
 #title {
+    position: fixed;
+    top: 0;
     background-color: rgb(208, 181, 146);
     width: 100%;
     text-align: center;
     margin-top: 0;
     font-size: 4rem;
     font-weight: bold;
-    margin-bottom: 100px;
     box-shadow: 0px 1px 10px black;
 }
 #hidden {
@@ -52,7 +55,7 @@ body {
     max-width: 33.15%;
     width: 100px;
     max-height: 33.2%;
-    height: 103px;
+    height: 102px;
     border: 1px solid black;
     position: relative;
 }
@@ -60,13 +63,12 @@ body {
 .cell:hover {
     cursor: pointer;
     /* background-color: rgb(8, 8, 5); */
-    content: 'x';
 }
 
 #playerNames {
-    width: 800px;
     display: flex;
     justify-content: center;
+    gap: 5px;
 }
 
 #playerNames > div > input { 
@@ -136,10 +138,12 @@ input {
     border: 1px solid transparent;
     height: 1.4em;
     text-align: center;
-    margin-right: 10px;
-    margin-left: 15px;
 }
 input:focus {
     outline: none;
     background-color: rgb(241, 255, 196);
+}
+a {
+    color: black;
+    text-decoration: none;
 }
