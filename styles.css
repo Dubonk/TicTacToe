@@ -40,6 +40,9 @@ body {
     border-radius: 8px;
     border: 20px solid rgb(126, 126, 126);
     margin-bottom: 20px;
+    margin-left: 5px;
+    margin-right: 5px;
+    overflow: hidden;
 }
 .cell {
     text-align: center;
@@ -47,10 +50,8 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* width: 33.15%;
-    height: 33.2%; */
     max-width: 33.15%;
-    width: 100px;
+    width: 102px;
     max-height: 33.2%;
     height: 102px;
     border: 1px solid black;
@@ -59,7 +60,7 @@ body {
 
 .cell:hover {
     cursor: pointer;
-    /* background-color: rgb(8, 8, 5); */
+    background-color: rgb(163, 163, 146);
 }
 
 #playerNames {
@@ -104,6 +105,8 @@ button:active {
 }
 
 .footer {
+    bottom: 0;
+    position: fixed;
     margin-bottom: 0;
     display: flex;
     justify-content: center;
