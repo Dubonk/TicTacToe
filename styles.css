@@ -32,7 +32,6 @@ body {
 }
 #game {
     margin-top: 100px;
-    margin-bottom: 50px;
     max-width: 800px;
     width: 310px;
     max-height: 60%;
@@ -79,6 +78,10 @@ body {
     height: 1.5em;
     width: 250px;
     text-align: center;
+}
+
+#reset {
+    margin-bottom: 50px;
 }
 
 button {
