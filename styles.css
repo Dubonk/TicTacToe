@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-:root {
-    --cell-size: 100px;
-    --mark-size: calc(var(--cell-size) * .9);
-}
+
 * { 
     font-family: 'Roboto', sans-serif;
 }
@@ -13,6 +10,7 @@ body {
     align-items: center;
     flex-direction: column;
     height: 100vh;
+    width: 100%;
     background-color: rgb(108, 181, 177);
 }
 
@@ -30,8 +28,10 @@ body {
     display: none;
 }
 #game {
-    width: 800px;
-    height: 60%;
+    max-width: 800px;
+    width: 310px;
+    max-height: 60%;
+    height: 310px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -43,26 +43,30 @@ body {
 }
 .cell {
     text-align: center;
-    font-size: 1220%;
+    font-size: 40px;
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 33.15%;
-    height: 33.2%;
+    /* width: 33.15%;
+    height: 33.2%; */
+    max-width: 33.15%;
+    width: 100px;
+    max-height: 33.2%;
+    height: 103px;
     border: 1px solid black;
     position: relative;
 }
 
 .cell:hover {
     cursor: pointer;
-    background-color: rgb(224, 224, 201);
+    /* background-color: rgb(8, 8, 5); */
     content: 'x';
 }
 
 #playerNames {
     width: 800px;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
 }
 
 #playerNames > div > input { 
@@ -132,6 +136,8 @@ input {
     border: 1px solid transparent;
     height: 1.4em;
     text-align: center;
+    margin-right: 10px;
+    margin-left: 15px;
 }
 input:focus {
     outline: none;
