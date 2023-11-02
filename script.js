@@ -60,6 +60,7 @@ function placeMark(div, index) {
   if (div.textContent == '') {
     myGameBoard[index] = currentPlayer;
     div.textContent = currentPlayer;
+    console.log(myGameBoard);
   };
 }
 
@@ -68,7 +69,7 @@ function checkWin(div) {
   for (const combo of winningCombinations) {
     const [a, b, c] = combo;
     if (myGameBoard[a] && myGameBoard[a] === myGameBoard[b] && myGameBoard[a] === myGameBoard[c]) {
-      alert(`${currentPlayer === player1.marker ? player1.name : player2.name} wins!`);
+      alert(`${currentPlayer === player2.marker ? player1.name : player2.name} wins!`);
       return win = true;
     }
   }
@@ -108,7 +109,7 @@ function resetGame() {
     cell.textContent = '';
     cell.classList.remove('x', 'circle');
     cell.removeEventListener('click', handleClick);
-    form.reset();
+    //form.reset();
   });
 
   // Reset the game array
