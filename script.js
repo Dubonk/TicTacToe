@@ -48,10 +48,13 @@ function handleClick(div, index) {
     return;
   }
   getNames();
+  if(div.textContent == '') {
   placeMark(div, index);
+  switchTurn(div);
+  }
   checkWin(div);
   checkTie();
-  switchTurn(div);
+  
 }
 function placeMark(div, index) {
   if (div.textContent == '') {
