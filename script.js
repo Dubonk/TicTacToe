@@ -91,6 +91,7 @@ function switchTurn(div) {
 
 const startGame = ( function() {
   game.addEventListener('click',() => {
+    reset.style.display = 'inline-block';
     game.textContent = '';
     getNames();
     renderGameBoard()
