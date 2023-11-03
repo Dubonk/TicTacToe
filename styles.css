@@ -31,6 +31,12 @@ body {
     color: rgb(214, 212, 212);
 }
 
+#results {
+    height: 44px;
+    color: white;
+    font-size: 42px;
+}
+
 #game {
     cursor: pointer;
     max-width: 800px;

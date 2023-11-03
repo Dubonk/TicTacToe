@@ -1,6 +1,7 @@
 const game = document.getElementById('game');
 const start = document.getElementById('startGame');
 const reset = document.getElementById('reset');
+let displayResults = document.getElementById('results');
 let firstPlayerName; // = document.getElementById('player1').value;
 let secondPlayerName;
 const form = document.getElementById('playerNames');
@@ -65,11 +66,10 @@ function placeMark(div, index) {
 }
 
 function checkWin(div) {
-  
   for (const combo of winningCombinations) {
     const [a, b, c] = combo;
     if (myGameBoard[a] && myGameBoard[a] === myGameBoard[b] && myGameBoard[a] === myGameBoard[c]) {
-      alert(`${currentPlayer === player2.marker ? player1.name : player2.name} wins!`);
+      displayResults.textContent = `${currentPlayer === player2.marker ? player1.name : player2.name} wins!`;
       return win = true;
     }
   }
@@ -77,7 +77,7 @@ function checkWin(div) {
 
 function checkTie() {
   if (myGameBoard.every(Element => Element == 'x' || Element == 'o' && win == false)) {
-     alert('tie!');
+     displayResults.textContent = 'Tie!';
   };
 }
 
@@ -97,12 +97,14 @@ const startGame = ( function() {
   game.addEventListener('click',() => {
     reset.style.display = 'inline-block';
     game.textContent = '';
+    displayResults.textContent = '';
     getNames();
     renderGameBoard()
   }, {once: true});
 })();
 
 function resetGame() {
+  displayResults.textContent = '';
   // Clear the game board
   const cells = document.querySelectorAll('.cell');
   cells.forEach(cell => {
