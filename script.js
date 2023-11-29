@@ -61,7 +61,6 @@ function placeMark(div, index) {
   if (div.textContent == '') {
     myGameBoard[index] = currentPlayer;
     div.textContent = currentPlayer;
-    console.log(myGameBoard);
   };
 }
 
